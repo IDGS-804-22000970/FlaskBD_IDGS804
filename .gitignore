@@ -1,0 +1,13 @@
+
+# Variables de entorno
+
+.env
+ 
+# Dependencias Node
+
+node_modules/
+ 
+# Carpeta static
+
+static/
+ 
