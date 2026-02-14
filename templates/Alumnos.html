@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block container %}
+
+<div class="w-full max-w-5xl mx-auto mt-8">
+
+    <h2 class="text-xl font-bold mb-6">
+        Lista de Alumnos
+    </h2>
+
+    <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300">
+            <thead class="bg-gray-200">
+                <tr>
+                    <th class="border px-3 py-2">ID</th>
+                    <th class="border px-3 py-2">Nombre</th>
+                    <th class="border px-3 py-2">Apellido</th>
+                    <th class="border px-3 py-2">Edad</th>
+                    <th class="border px-3 py-2">Correo</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for a in alumnos %}
+                <tr class="hover:bg-gray-100">
+                    <td class="border px-3 py-2 text-center">{{ a.id }}</td>
+                    <td class="border px-3 py-2">{{ a.nombre }}</td>
+                    <td class="border px-3 py-2">{{ a.apellido }}</td>
+                    <td class="border px-3 py-2 text-center">{{ a.edad }}</td>
+                    <td class="border px-3 py-2">{{ a.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+{% endblock %}
