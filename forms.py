@@ -1,18 +1,29 @@
 from wtforms import Form
-from wtforms import StringField, IntegerField, PasswordField
+from flask_wtf import FlaskForm
+ 
+from wtforms import StringField, IntegerField
 from wtforms import EmailField
 from wtforms import validators
-
+ 
 class UserForm(Form):
-    nombre=StringField('Nombre', [
-        validators.DataRequired(message="El campo es requerido"),
-        validators.Length(min=4,max=10,message="Ingresa nombre valido")
+    id = IntegerField('id', [
+        validators.number_range(min=1, max=20, message='valor no valido')
     ])
-    apaterno=StringField('aPaterno',[
-        validators.DataRequired(message="El campo es requerido"),
-
+   
+    nombre = StringField('nombre', [
+        validators.DataRequired(message='El nombre es requerido'),
+        validators.length(min=4, max=20, message='requiere min=4 max=20')
     ])
-    email=EmailField('Correo',[
-        validators.email(message="Ingrese un correo valido"),
+   
+    apellidos = StringField('apellidos', [
+        validators.DataRequired(message='Los apellidos son requeridos')
+    ])
+   
+    email = EmailField('correo', [
+        validators.DataRequired(message='El correo es requerido'),
+        validators.Email(message='Ingrese un correo valido')
+    ])
 
+    telefono = StringField('telefono', [
+        validators.DataRequired(message='El telefono es requerido')
     ])

@@ -1,12 +1,12 @@
-import datetime
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
-db = SQLAlchemy()
-
+db=SQLAlchemy()
 class Alumnos(db.Model):
     __tablename__='alumnos'
-    id = db.Column(db.Integer,primary_key=True)
+    id=db.Column(db.Integer,primary_key=True)
     nombre=db.Column(db.String(50))
-    apaterno=db.Column(db.String(50))
-    email=db.Column(db.String(50))
-    created_date=db.Column(db.DateTime,default=datetime.datetime.now)
+    apellidos=db.Column(db.String(120))
+    email=db.Column(db.String(200))
+    telefono=db.Column(db.String(20))
+    create_Date=db.Column(db.DateTime, default=datetime.datetime.now)
