@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block container %}
+
+<div class="max-w-xs w-full p-6 border rounded shadow mx-auto">
+
+    <div class="flex flex-col items-center">
+        <h5 class="text-xl font-semibold">
+            {{ nombre }} {{ apellidos }}
+        </h5>
+
+        <span>{{ especialidad }}</span>
+        <span>{{ email }}</span>
+        <span>Matrícula: {{ matricula }}</span>
+
+        <div class="flex mt-4 gap-4">
+            <a href="/maestros"
+               class="text-white bg-brand px-4 py-2 rounded">
+                Regresar
+            </a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

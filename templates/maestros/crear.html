@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<form method="POST" class="max-w-md mx-auto">
+    {{ form.hidden_tag() }}
+
+    <div class="relative z-0 w-full mb-5 group">
+        {{ macros.camposNuevos(form.matricula) }}
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+        {{ macros.camposNuevos(form.nombre) }}
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+        {{ macros.camposNuevos(form.apellidos) }}
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+        {{ macros.camposNuevos(form.especialidad) }}
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+        {{ macros.camposNuevos(form.email) }}
+    </div>
+
+    <button type="submit"
+        class="text-white bg-brand px-4 py-2 rounded">
+        Guardar
+    </button>
+
+    <a href="/maestros"
+            class="text-white bg-gray-500 px-4 py-2 rounded">
+            Regresar
+        </a>
+
+</form>
+
+{% endblock %}

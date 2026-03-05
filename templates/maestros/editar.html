@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<form method="POST" class="max-w-md mx-auto">
+    {{ form.hidden_tag() }}
+
+    <div class="relative z-0 w-full mb-5 group">
+    {{ macros.camposNuevos(form.matricula) }}
+    {% if form.matricula.errors %}
+        {% for error in form.matricula.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="relative z-0 w-full mb-5 group">
+    {{ macros.camposNuevos(form.nombre) }}
+    {% if form.nombre.errors %}
+        {% for error in form.nombre.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="relative z-0 w-full mb-5 group">
+    {{ macros.camposNuevos(form.apellidos) }}
+    {% if form.apellidos.errors %}
+        {% for error in form.apellidos.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="relative z-0 w-full mb-5 group">
+    {{ macros.camposNuevos(form.especialidad) }}
+    {% if form.especialidad.errors %}
+        {% for error in form.especialidad.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="relative z-0 w-full mb-5 group">
+    {{ macros.camposNuevos(form.email) }}
+    {% if form.email.errors %}
+        {% for error in form.email.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+</div>
+
+    <button type="submit"
+        class="text-white bg-orange-500 px-4 py-2 rounded">
+        Actualizar
+    </button>   
+
+    <a href="/maestros"
+            class="text-white bg-gray-500 px-4 py-2 rounded">
+            Regresar
+        </a>
+</form>
+
+{% endblock %}

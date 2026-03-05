@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block container %}
+
+<form method="POST" class="max-w-md mx-auto">
+    {{ form.hidden_tag() }}
+
+    <h2 class="text-xl font-bold text-red-600 mb-4">
+        ¿Seguro que deseas eliminar este maestro?
+    </h2>
+
+    {{ form.matricula(type="hidden") }}
+
+    {{ form.nombre(class="block w-full bg-gray-100", readonly=True) }}
+    {{ form.apellidos(class="block w-full bg-gray-100", readonly=True) }}
+    {{ form.especialidad(class="block w-full bg-gray-100", readonly=True) }}
+    {{ form.email(class="block w-full bg-gray-100", readonly=True) }}
+
+    <div class="flex gap-4 mt-4">
+        <button type="submit"
+            class="text-white bg-red-600 px-4 py-2 rounded">
+            Eliminar
+        </button>
+
+        <a href="/maestros"
+            class="text-white bg-gray-500 px-4 py-2 rounded">
+            Cancelar
+        </a>
+    </div>
+</form>
+
+{% endblock %}

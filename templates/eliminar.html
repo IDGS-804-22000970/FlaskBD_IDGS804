@@ -2,34 +2,41 @@
 {% block container %}
 {% import "_macros.html" as macros %}
 
-<form action="{{ url_for('eliminar', id=request.args.get('id')) }}" method="POST" class="max-w-md mx-auto">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+<form method="POST" class="max-w-md mx-auto">
+
+    {{ form.hidden_tag() }}
+
+    <!-- ID oculto -->
+    {{ form.id(type="hidden") }}
+
+    <h2 class="text-xl font-bold text-red-600 mb-4">
+        ¿Seguro que deseas eliminar este alumno?
+    </h2>
+
     <div class="relative z-0 w-full mb-5 group">
-        {{macros.camposNuevos(form.nombre, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0
-        border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+        {{ form.nombre(class="block py-2.5 px-0 w-full text-sm border-0 border-b-2 border-gray-300 bg-gray-100", readonly=True) }}
     </div>
+
     <div class="relative z-0 w-full mb-5 group">
-        {{macros.camposNuevos(form.apellidos, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent
-        border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
-        peer")}}
+        {{ form.apellidos(class="block py-2.5 px-0 w-full text-sm border-0 border-b-2 border-gray-300 bg-gray-100", readonly=True) }}
     </div>
+
     <div class="relative z-0 w-full mb-5 group">
-        {{macros.camposNuevos(form.email, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0
-        border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
+        {{ form.email(class="block py-2.5 px-0 w-full text-sm border-0 border-b-2 border-gray-300 bg-gray-100", readonly=True) }}
     </div>
-    <div class="relative z-0 w-full mb-5 group">
-        {{macros.camposNuevos(form.telefono, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent
-        border-0
-        border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer")}}
-    </div>
-    <div class="relative z-0 w-full mb-5 group">
+
+    <div class="flex gap-4">
         <button type="submit"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</button>
+            class="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
+            Eliminar
+        </button>
+
+        <a href="{{ url_for('index') }}"
+            class="text-white bg-gray-500 hover:bg-gray-600 px-4 py-2 rounded">
+            Cancelar
+        </a>
     </div>
-    <div class="relative z-0 w-full mb-5 group">
-        <button type="submit"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Cancelar</button>
-    </div>
+
 </form>
 
 {% endblock %}
